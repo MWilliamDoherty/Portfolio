@@ -1,0 +1,10 @@
+<h1>
+    Select a Recipe
+</h1>
+    <div class="selection">
+        <select class="form-control">
+            <option selected="selected" value=0>-- Please select a recipe --</option>
+            <option *ngFor="let recipe of recipes" value="{{recipe.Id}}">{{recipe.Name}}</option>
+        </select>
+    </div>
+<br/>
