@@ -1,30 +1,51 @@
 import { Component, OnInit } from '@angular/core';
-import { config } from 'process';
-//import { HttpClient } from;
-import { ConfigService } from '../config.service';
+import { RecipeService, Recipe, Step } from '../recipe.service';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+
+let header = new HttpHeaders();
+header.set('Access-Control-Allow-Origin', '*');
 
 @Component({
   selector: 'app-open-page',
   templateUrl: './open-page.component.html',
-  styleUrls: ['./open-page.component.css']
+  styleUrls: ['./open-page.component.css'],
+  //providers: [ RecipeService ]
 })
 export class OpenPageComponent implements OnInit {
 
-  configUrl = '';
+  configUrl = 'api/Controllers/RecipeController';
+  
+  show:boolean;
+  recipes:Recipe[];
+  recipe:Recipe;
+  selectedRecipe
 
   constructor(
-    public ConfigService: ConfigService
+    //public service: RecipeService,
+    public http: HttpClient
     ) { }
 
   ngOnInit() {
+    this.show = true;
+    this.recipes = new Array<Recipe>();
+    this.recipe = new Recipe;
+    this.recipe.Steps = new Array<Step>();
     this.getRecipeNames();
   }
 
   getRecipeNames(){
-    return this.ConfigService.getRecipeNames();
+    this.http.get<Array<Recipe>>(this.configUrl).subscribe(data => {
+      this.recipes = this.recipes.concat(data);
+    });
+  }
+
+  checkValue(){
+    this.show = true;
   }
 
   getRecipe(id){
+    
 
   }
 

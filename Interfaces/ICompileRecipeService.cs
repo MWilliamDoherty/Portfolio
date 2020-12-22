@@ -10,5 +10,6 @@ namespace PortfolioExample.Interfaces
     {
         public Recipe compileRecipe(int recipeId);
         public void createRecipe(Recipe recipe);
+        public List<Recipe> getRecipes();
     }
 }

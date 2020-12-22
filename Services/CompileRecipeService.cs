@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using PortfolioExample.Data;
+//using PortfolioExample.Data;
 using PortfolioExample.Interfaces;
 
 namespace PortfolioExample.Services
@@ -43,6 +43,18 @@ namespace PortfolioExample.Services
             {
                 db.Recipes.Add(recipe);
 
+            }
+        }
+
+        public List<Recipe> getRecipes()
+        {
+            using (var db = new DatabaseContext())
+            {
+                List<Recipe> recipes = db.Recipes.Select(o => new Recipe() {
+                    Id = o.Id,
+                    Name = o.Name
+                }).ToList();
+                return recipes;
             }
         }
     }

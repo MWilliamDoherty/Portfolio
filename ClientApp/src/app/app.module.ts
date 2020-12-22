@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -11,6 +12,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CreatePageComponent } from './create-page/create-page.component';
 import { OpenPageComponent } from './open-page/open-page.component';
+import { SwaggerComponent } from './swagger/swagger.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { OpenPageComponent } from './open-page/open-page.component';
     CounterComponent,
     FetchDataComponent,
     CreatePageComponent,
-    OpenPageComponent
+    OpenPageComponent,
+    SwaggerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,6 +35,7 @@ import { OpenPageComponent } from './open-page/open-page.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'create-page', component: CreatePageComponent },
       { path: 'open-page', component: OpenPageComponent },
+      { path: 'swagger', component: SwaggerComponent },
     ])
   ],
   providers: [],
