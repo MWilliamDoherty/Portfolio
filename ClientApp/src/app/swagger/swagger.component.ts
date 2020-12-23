@@ -20,9 +20,10 @@ export class SwaggerComponent implements OnInit {
         SwaggerUIBundle.SwaggerUIStandalonePreset
       ],
       url: 'https://localhost:44335/',
+      validatorUrl: "https://validator.swagger.io/validator",
       docExpansion: 'none',
       operationsSorter: 'alpha',
-      version: "2.0"
+      swagger: "2.0"
     });
   }
 
